@@ -112,7 +112,7 @@ def get_available_room(input_text):
 
 def transform_json(input_json):
     output = {
-        "credits": "@scvirtual",
+        "credits": "@Stark7771.",
         "items": []
     }
 
@@ -142,7 +142,7 @@ def get_player_info():
             return jsonify({
                 "status": "error",
                 "message": "Player ID is required",
-                "credits": "@scvirtual",
+                "credits": "@Stark7771.",
                 "timestamp": datetime.now().strftime("%Y-%m-%d %H:%M:%S")
             }), 400
 
@@ -151,7 +151,7 @@ def get_player_info():
             return jsonify({
                 "status": "error",
                 "message": "Failed to generate JWT token",
-                "credits": "@scvirtual",
+                "credits": "@Stark7771.",
                 "timestamp": datetime.now().strftime("%Y-%m-%d %H:%M:%S")
             }), 500
 
