@@ -17,7 +17,7 @@ app = Flask(__name__)
 def load_tokens():
     try:
         # Link direto para o JSON BR
-        url = "https://seulinkdetokens"
+        url = "https://tokenff.discloud.app/token"
         
         response = requests.get(url)
         response.raise_for_status()  # Verifica se a requisição foi bem-sucedida
@@ -159,7 +159,7 @@ def get_player_info():
         url = "https://client.us.freefiremobile.com/GetWishListItems"
         headers = {
             'X-Unity-Version': '2018.4.11f1',
-            'ReleaseVersion': 'OB48',
+            'ReleaseVersion': 'OB49',
             'Content-Type': 'application/x-www-form-urlencoded',
             'X-GA': 'v1 1',
             'Authorization': f'Bearer {jwt_token}',
@@ -190,7 +190,7 @@ def get_player_info():
         return jsonify({
             "status": "error",
             "message": str(e),
-            "credits": "@scvirtual",
+            "credits": "@Stark7771.",
             "timestamp": datetime.now().strftime("%Y-%m-%d %H:%M:%S")
         }), 500
 
