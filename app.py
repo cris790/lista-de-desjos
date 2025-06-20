@@ -182,7 +182,7 @@ def get_player_info():
             return jsonify({
                 "status": "error",
                 "message": f"API request failed with status code {response.status_code}",
-                "credits": "@scvirtual",
+                "credits": "@Stark7771",
                 "timestamp": datetime.now().strftime("%Y-%m-%d %H:%M:%S")
             }), response.status_code
 
