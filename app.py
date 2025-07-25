@@ -16,24 +16,20 @@ app = Flask(__name__)
 # GET JWT
 def load_tokens():
     try:
-        # Link direto para o JSON BR
-        url = "https://tokenff.discloud.app/token"
+        # Nova API para gerar JWT
+        url = "https://genjwt.vercel.app/api/get_jwt?type=4&guest_uid=3743593901&guest_password=07B3A66A0FEF912E2CF0194EF606D26C3581FB4F5E225B814208C6076DB19F90"
         
         response = requests.get(url)
         response.raise_for_status()  # Verifica se a requisição foi bem-sucedida
         
-        tokens_data = response.json()  # Converte para lista de dicionários
+        jwt_data = response.json()
         
-        # Extrai apenas os valores dos tokens para uma lista
-        tokens_list = [item["token"] for item in tokens_data if "token" in item]
-        
-        # Seleciona um token aleatório se houver tokens disponíveis
-        if tokens_list:
-            return random.choice(tokens_list)
+        if jwt_data.get("success") and "BearerAuth" in jwt_data:
+            return jwt_data["BearerAuth"]
         return None
 
     except Exception as e:
-        print(f"Error loading tokens: {e}")  # Mensagem de erro sem server_name
+        print(f"Erro ao carregar token JWT: {e}")
         return None
 
 
